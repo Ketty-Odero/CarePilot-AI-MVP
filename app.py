@@ -2,6 +2,8 @@ import streamlit as st
 import sqlite3
 from datetime import datetime, date, time as dtime, timedelta
 import pandas as pd
+import matplotlib
+matplotlib.use("Agg")  # Safe backend for Streamlit Cloud
 import matplotlib.pyplot as plt
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
