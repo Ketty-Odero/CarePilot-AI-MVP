@@ -763,7 +763,7 @@ def main():
 
     # Header
     st.title("CarePilot AI")
-    st.caption("Care coordination • risk flags • AI summary • charts • doctor-ready PDF")
+    st.caption("Care coordination • Risk flags • AI summary • Charts • Doctor-ready PDF")
 
     st.sidebar.markdown("### Navigation")
     page = st.sidebar.radio(
@@ -771,14 +771,17 @@ def main():
         ["📊 Dashboard", "👤 Profile", "💊 Medications", "📅 Appointments", "📝 Daily Check-in"],
         label_visibility="collapsed"
     )
+   
 
-    st.sidebar.divider()
-    with st.sidebar.expander("⚙️ Admin"):
-        if st.button("⚠️ Reset database (deletes all data)"):
-            reset_db()
-            st.success("Database deleted. Restart the app.")
-            st.stop()
+    is_admin = False  # change to True if admin
 
+    if is_admin:
+        st.sidebar.divider()
+        with st.sidebar.expander("⚙️ Admin"):
+          if st.button("⚠️ Reset database (deletes all data)"):
+           reset_db()
+           st.success("Database deleted. Restart the app.")
+           st.stop()
     recipient_id = None
     recipient_name = None
     if page != "👤 Profile":
